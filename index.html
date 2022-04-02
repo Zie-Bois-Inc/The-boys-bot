@@ -1,22 +1,91 @@
 <html>
-<head>
-
-
-</head>
 <body>
+    <script>
+        var age;
+        var name;
 
-<script>
-    function color(color)
-    {
-        document.body.style.backgroundColor = color;
-    }
- 
-    
+        function changeAge(age)
+        {
+            age = document.form1.text2.value;
+            document.form1.name2.value="גיל: "+age;
+        }
+
+        function changeName(name)
+        {
+            name = document.form1.text1.value;
+            document.form1.name1.value="שם: "+name;
+        }
+
+        function check()
+        {
+            var x = 0 ; 
+            if(document.form1.radio1[0].checked == true)
+            {
+                x++
+                document.form1.radio1.style.backgroundColor="green"
+            }
+            
+            if(document.form1.checkbox1.checked  == true)
+            {
+                x++
+                document.form1.checkbox1.style.backgroundColor="green"
+            }
+
+            if(document.form1.checkbox2.checked == true)
+            {
+                x++
+                document.form1.checkbox2.style.backgroundColor="green"
+            }
+
+            if(document.form1.text3.value == "אסיה")
+            {
+                x++
+                document.form1.text3.style.backgroundColor="green"
+            }
+
+            alert(x*25)
+        }
+    </script>
 
 
-</script>
-<button onclick="color('red')">red</button>
-<button onclick="color('green')">green</button>
-<button onclick="color('blue')">blue</button>
+
+    <form name="form1">
+        <div style="position: absolute; top: 5%; right: 5%;">
+            <output name="name1" style=" direction: rtl; font-size: 50px;">שם: </output>
+            <br>
+            <output name="name2" style="float: right; direction: rtl; font-size: 50px;">גיל: </output>
+        </div>
+        <div style="text-align: center;">
+            <br>
+            <br>
+            <input type="text" name="text2" onchange="changeAge(age)" placeholder="גיל:" size="10" style="direction: rtl;">
+            <input type="text" name="text1" onchange="changeName(name)" placeholder="שם:" size="10" style="direction: rtl;">
+            <br>
+            <br>
+            <h3>שאלה 1</h3>
+            <p>מהיא עיר הבירה של ישראל</p>
+            תל אביב<input type="radio" name="radio1">
+            ירושלים<input type="radio" name="radio1">
+            פתח תקווה<input type="radio" name="radio1">
+            <br>
+            <br>
+            <h3>שאלה 2</h3>
+            <P>סמן את הערים שבמרכז</P>
+            אילת<input type="checkbox" name="checkbox1">
+            רמת גן<input type="checkbox" name="checkbox2">
+            תל אביב<input type="checkbox" name="checkbox3">
+            <br>
+            <br>
+            <h3>שאלה 3</h3>
+            <p>באיזה יבשת ישראל</p>
+            <input type="text" name="text3">
+            <br>
+            <br>
+            <input type="button" value="בדיקה" onclick="check()">
+            <!--<div style="background-color: red;">
+                <input type="button" value="התחלה" onclick="">
+            </div>-->
+        </div>
+    </form>
 </body>
 </html>
